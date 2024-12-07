@@ -21,3 +21,15 @@
 1733496547 c:\users\tomas\desktop\sdl_cpp\pro2\mandelbrot.h
 	<complex>
 
+1733610634 source:c:\users\tomas\desktop\sdl_cpp\mandelbrot\mandelbrot_funciones.cpp
+	"mandelbrot.h"
+	<numeric>
+
+1733608197 c:\users\tomas\desktop\sdl_cpp\mandelbrot\mandelbrot.h
+	<complex>
+	<SDL3/SDL.h>
+
+1733610570 source:c:\users\tomas\desktop\sdl_cpp\mandelbrot\main.cpp
+	<iostream>
+	"mandelbrot.h"
+

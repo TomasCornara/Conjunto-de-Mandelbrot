@@ -1,5 +1,4 @@
 #include <iostream>
-#include <SDL3/SDL.h>
 #include "mandelbrot.h"
 
 using namespace std;
@@ -8,58 +7,53 @@ int main(int argc, char* argv[])
 {
     ///DECLARACIONES
     unsigned int ALTO = 900;
-    unsigned int ANCHO = 1600;
+    unsigned int ANCHO = 1000;
     bool listo = false;
     SDL_Event evento;
     SDL_Window* ventana = nullptr;
     SDL_Renderer* renderer = nullptr;
-    std::complex<double> aux_complejo;
-    double real;
-    double imaginario;
-    int cantidad_generaciones;
-    int resolucion = 1000;
+    int resolucion;
 
 
     ///PROGRAMA
+    //Settings
+    cout<<"Ingrese la presicion del calculo (Se recomienda de 400 en adelante): ";
+    cin>>resolucion;
+    while(resolucion <= 0){
+        cout<<"Ingrese un valor mayor que 0: ";
+        cin>>resolucion;
+    }
+    cout<<"Procesando..\n";
+
     //Inicio de la ventana
     SDL_Init(SDL_INIT_VIDEO);
-    SDL_CreateWindowAndRenderer("Mandelbrot Set.",ANCHO,ALTO,0,&ventana,&renderer);
+    SDL_CreateWindowAndRenderer("Mandelbrot Set.",
+                                ANCHO,
+                                ALTO,
+                                SDL_WINDOW_BORDERLESS,
+                                &ventana,
+                                &renderer);
+
+    //Carga y coloca el icono
+    auto icono = SDL_LoadBMP("icono.bmp");
+    if(!icono){
+        cout<<"Error al cargar el icono: "<<SDL_GetError();
+    } else {
+        SDL_SetWindowIcon(ventana,icono);
+        SDL_DestroySurface(icono);
+    }
 
     //Limpio la pantalla pintandola de negro
     SDL_SetRenderDrawColor(renderer,0,0,0,255);
     SDL_RenderClear(renderer);
     SDL_RenderPresent(renderer);
 
-    SDL_SetRenderDrawColor(renderer,255,255,255,255);
 
-    //Recorro los numeros
-    for(real = -2; real < 1; real+= 1.0 / resolucion){
-        for(imaginario = -1.5; imaginario < 1.5; imaginario+= 1.0 / resolucion){
-            //Declaro una variable compleja en la posicion que estoy
-            //La corrijo al real y al imaginario por el tamanno de la pantalla
-            //Y al real una vez mas por el rango de interes (De - 2 a 1)
-            aux_complejo = std::complex<double>(real,imaginario);
+    //Calculo el mandelbrot dentro del renderer
+    imprimir_mandelbrot(renderer,resolucion);
 
-
-            //Calculo la cantidad de generaciones
-            cantidad_generaciones = es_divergente(aux_complejo);
-
-            SDL_SetRenderDrawColor(renderer,
-                                    cantidad_generaciones,
-                                    cantidad_generaciones,
-                                    cantidad_generaciones,
-                                    255);
-            //Dibuja
-            SDL_RenderPoint(renderer,
-                            (real + 3) * 400,
-                            (imaginario + 1.1) * 400);
-        }
-        SDL_RenderPresent(renderer);
-    }
-
-    //Cuando termino, actualizo la pantalla
-    SDL_RenderPresent(renderer);
-
+    cout<<"Precione ESC dentro de la nueva ventana para cerrar el programa.";
+    //Entro en un bucle para esperar que el usuario use el ESC
     while(!listo)
     {
         //Verificacion de eventos
@@ -81,7 +75,6 @@ int main(int argc, char* argv[])
             }
         }
         // Actualiza la pantalla
-        //SDL_RenderPresent(renderer);
         SDL_Delay(100);
     }
 
