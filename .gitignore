@@ -30,3 +30,16 @@
 *.exe
 *.out
 *.app
+
+#Carpetas
+./bin
+./obj
+
+#archivos de codeblocks
+pro2.depend
+pro2.layout
+pro2.cbp
+
+#Archivos prueba
+cubo3d.h 
+cubo3dRendered.cpp
