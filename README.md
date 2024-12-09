@@ -23,7 +23,7 @@ La logica del programa esta hecha en C++ y la parte del visual esta hecha con la
 ![Blanco Y Negro](https://github.com/TomasCornara/Conjunto-de-Mandelbrot/blob/main/Previews/byn.png?raw=true)
 
 ### Circo
-[![Blanco Y Negro](https://github.com/TomasCornara/Conjunto-de-Mandelbrot/blob/main/Previews/circo.png?raw=true)
+![Blanco Y Negro](https://github.com/TomasCornara/Conjunto-de-Mandelbrot/blob/main/Previews/circo.png?raw=true)
 
 ### Colorido
 ![Colorido](https://github.com/TomasCornara/Conjunto-de-Mandelbrot/blob/main/Previews/colorido.png?raw=true)
