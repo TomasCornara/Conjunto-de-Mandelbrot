@@ -120,7 +120,7 @@ int main(int argc, char* argv[])
     //Calculo el mandelbrot dentro del renderer
     imprimir_mandelbrot(renderer,resolucion,PRESETS,preset_elegido,multiplicador_R,multiplicador_G,multiplicador_B);
     system("cls");
-    cout<<"Cierre o Precione ESC dentro de la nueva ventana para cerrar el programa.";
+    cout<<"Cierre o Precione ESC dentro de la nueva ventana para cerrar el programa.\n";
     //Entro en un bucle para esperar que el usuario use el ESC
     while(!LISTO)
     {

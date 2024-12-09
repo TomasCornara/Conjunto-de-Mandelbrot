@@ -31,7 +31,7 @@
 	<complex>
 	<SDL3/SDL.h>
 
-1733775519 source:c:\users\tomas\desktop\sdl_cpp\mandelbrot\main.cpp
+1733775929 source:c:\users\tomas\desktop\sdl_cpp\mandelbrot\main.cpp
 	<iostream>
 	"mandelbrot.h"
 	<cstdlib>
