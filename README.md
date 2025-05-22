@@ -9,7 +9,6 @@ z₀ = 0 ∈ C  (término inicial)
 
 zₙ₊₁ = zₙ² + c  (sucesión recursiva)
 
-El conjunto incluye aquellos valores de C para los cuales la iteración de esta sucesión no tiende a infinito.
 
 ## Descripción del Proyecto
 
